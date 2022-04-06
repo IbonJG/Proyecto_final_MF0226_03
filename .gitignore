@@ -1,3 +1,9 @@
+#ficheros ignorados de eclipse
+/.settings/
+.project
+.classpath
+
+#ficheros ignorados de maven
 target/
 pom.xml.tag
 pom.xml.releaseBackup
