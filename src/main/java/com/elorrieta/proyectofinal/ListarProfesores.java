@@ -4,23 +4,22 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class ListarAlumnos {
+public class ListarProfesores {
 
 	public static void main(String[] args) {
-
-
+		
 		try {
 			// crear conexion a la bbdd
 			Connection con = Conexion.getConnection();
 			// declarar la consulta que queremos realizar contra la bbdd en una variable
-			String sql = "SELECT id_alumno, nombre, apellidos FROM mf0226_3.alumno;";
+			String sql = "SELECT id_profesor, nombre, apellidos FROM mf0226_3.profesor;";
 			// para poder interactuar desde java con la bbdd
 			PreparedStatement pst = con.prepareStatement(sql);
 			// muestra el resultado de la consulta
 			ResultSet rs = pst.executeQuery();
 
 			System.out.println("----------------------------------------------------");
-			System.out.println("---------------LISTADO DE ALUMNOS-------------------");
+			System.out.println("---------------LISTADO DE PROFESORES-------------------");
 			System.out.println("");
 			System.out.println(" ID    Nombre     Apellidos");
 			System.out.println("----------------------------------------------------");
@@ -29,7 +28,7 @@ public class ListarAlumnos {
 			while (rs.next()) {
 
 				// guardas los datos que hay en la bbdd en variables
-				int id = rs.getInt("id_alumno");
+				int id = rs.getInt("id_profesor");
 				String nombre = rs.getString("nombre");
 				String apellidos = rs.getString("apellidos");
 
