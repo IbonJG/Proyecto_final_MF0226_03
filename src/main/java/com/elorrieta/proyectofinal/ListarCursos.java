@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 
 public class ListarCursos {
 
-	public static void main(String[] args) {
+	public void listarcurso() {
 		
 		try {
 			// crear conexion a la bbdd
 			Connection con = Conexion.getConnection();
 			// declarar la consulta que queremos realizar contra la bbdd en una variable
-			String sql = "SELECT id_curso, nombre, horas FROM mf0226_3.curso;";
+			String sql = "SELECT id_curso, nombre, horas FROM curso;";
 			// para poder interactuar desde java con la bbdd
 			PreparedStatement pst = con.prepareStatement(sql);
 			// muestra el resultado de la consulta

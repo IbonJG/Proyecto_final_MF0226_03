@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class ListarAlumnos {
 
-	public static void main(String[] args) {
+	public void listaralumno() {
 
 
 		try {

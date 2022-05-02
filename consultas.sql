@@ -22,7 +22,7 @@ order by imparticiones.fecha_inicio desc;
 */
 
 select profesor.nombre as nombre_profesor, profesor.apellidos as apellidos_profesor , curso.nombre as curso, imparticiones.cod_curso, imparticiones.fecha_inicio, imparticiones.fecha_fin, curso.horas,
-	alumno.nombre alumno_nombre, alumno.apellidos as alumno_apellido, participantes.resenia_valoracion, participantes.resenia_descripcion
+	alumno.nombre as alumno_nombre, alumno.apellidos as alumno_apellido, participantes.resenia_valoracion, participantes.resenia_descripcion
     from curso
     inner join imparticiones on curso.id_curso = imparticiones.id_curso
     inner join profesor on imparticiones.id_profesor = profesor.id_profesor
@@ -55,6 +55,12 @@ limit 1
 ;
 
 -- cursos con mejor media de resenias
-
+select curso.nombre as curso, imparticiones.cod_curso, format(avg(participantes.resenia_valoracion),2) as media_valoracion from curso
+inner join imparticiones on curso.id_curso = imparticiones.id_curso
+inner join participantes on imparticiones.cod_curso = participantes.cod_curso
+group by cod_curso
+order by media_valoracion desc
+-- limit 1
+;
 
 

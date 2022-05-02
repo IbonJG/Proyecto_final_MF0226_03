@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class ListarProfesores {
 
-	public static void main(String[] args) {
+	public void listarprofesor() {
 		
 		try {
 			// crear conexion a la bbdd
@@ -19,7 +19,7 @@ public class ListarProfesores {
 			ResultSet rs = pst.executeQuery();
 
 			System.out.println("----------------------------------------------------");
-			System.out.println("---------------LISTADO DE PROFESORES-------------------");
+			System.out.println("---------------LISTADO DE PROFESORES----------------");
 			System.out.println("");
 			System.out.println(" ID    Nombre     Apellidos");
 			System.out.println("----------------------------------------------------");
