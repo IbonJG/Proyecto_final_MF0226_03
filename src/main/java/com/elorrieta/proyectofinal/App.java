@@ -39,16 +39,16 @@ public class App {
 		System.out.println("----------------------------------------------------");
 		System.out.println("--- Alumnos ---");
 		System.out.println("----------------------------------------------------");
-		System.out.println(" 9 - Listar Alumnos");
+		System.out.println(" 9 -  Listar Alumnos");
 		System.out.println(" 10 - Insertar Nuevo Alumno");
 		System.out.println(" 11 - Modificar Alumno Existente");
-		System.out.println(" 12- Eliminar Alumno Existente");
+		System.out.println(" 12 - Eliminar Alumno Existente");
 		System.out.println("----------------------------------------------------");
 		System.out.println("--- Consultas ---");
 		System.out.println("----------------------------------------------------");
-		System.out.println(" 13- Todos los cursos realizados");
-		System.out.println(" 14- Detalle de un curso, junto con las reseñas");
-		System.out.println(" 15- Curso con mejor valoracion");
+		System.out.println(" 13 - Todos los cursos realizados");
+		System.out.println(" 14 - Detalle de un curso, junto con las reseñas");
+		System.out.println(" 15 - Curso con mejor valoracion");
 		System.out.println("----------------------------------------------------");
 		System.out.println(" 0 - Salir");
 		System.out.println("----------------------------------------------------");
@@ -104,7 +104,7 @@ public class App {
 				ConsultaResenias.ejecutar();
 				break;
 			case 15:
-				System.out.println("En mantenimiento");
+				ConsultaMejorValoracion.ejecutar();
 				break;
 
 			default:
@@ -114,10 +114,10 @@ public class App {
 
 		} while (opcion != 0);
 		
-		//TODO mensaje insertar alumno, eliminar alumno (sale la excepcion de que introduce letras en vez de numeros)
-		//mensajes en modificar 
+		//TODO 
+		//mensajes en modificar mayusculas valor que ya esta en la bbdd 
 		//horas curso vieja en modificar (getfloat)
-		//mas consultas
+		//mas consultas??
 		
 	}
 

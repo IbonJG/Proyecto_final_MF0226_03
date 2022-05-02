@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class ConsultaMejorValoracion {
 
-	public static void main(String[] args) {
+	public static void ejecutar() {
 		
 		try {
 			
@@ -27,20 +27,20 @@ public class ConsultaMejorValoracion {
 			System.out.println("----------------------------------------------------");
 			System.out.println("---------------LISTADO DE CURSOS-------------------");
 			System.out.println("");
-			System.out.println("Profesor          Curso          Identificador   Fecha Inicio    Fecha Fin       Horas      Alumno                Valoracion Descripcion");
+			System.out.println(" Curso                Identificador        Media Valoracion");
 			System.out.println("----------------------------------------------------------------------------------------------------------------------------------------");
 			
 			// si encuentra datos y mientras haya un siguiente, los muestra
 			while (rs.next()) {
-				/*
+			
 				// guardas los datos que hay en la bbdd en variables
 				String nombrecurso = rs.getString("curso");
-				String nombrecurso = rs.getString("curso");
-				String nombrecurso = rs.getString("curso");
-				String nombrecurso = rs.getString("curso");
-				String nombrecurso = rs.getString("curso");
-				String nombrecurso = rs.getString("curso");
-				*/
+				String codigocurso = rs.getString("imparticiones.cod_curso");
+				int valoracion = rs.getInt("media_valoracion");
+				
+				// mostrar los resultados que se han recogido
+				System.out.printf(" %-20s %-20s %-10s \n" , nombrecurso, codigocurso, valoracion);
+				
 				
 				
 			}
