@@ -48,12 +48,13 @@ public class App {
 		System.out.println("----------------------------------------------------");
 		System.out.println(" 13- Todos los cursos realizados");
 		System.out.println(" 14- Detalle de un curso, junto con las reseñas");
+		System.out.println(" 15- Curso con mejor valoracion");
 		System.out.println("----------------------------------------------------");
 		System.out.println(" 0 - Salir");
 		System.out.println("----------------------------------------------------");
 
 		// recoger el valor introducido
-		opcion = Integer.parseInt(sc.next());
+		opcion = Integer.parseInt(sc.nextLine());
 
 			switch (opcion) {
 			case 0:
@@ -61,46 +62,49 @@ public class App {
 				break;
 			case 1:
 				//llama a listar cursos
-				new ListarCursos().listarcurso();
+				ListarCursos.ejecutar();
 				break;
 			case 2:
-				new InsertarCurso().insertarcurso(sc);
+				InsertarCurso.ejecutar(sc);
 				break;
 			case 3:
-				new ModificarCurso().modificarcurso(sc);
+				ModificarCurso.ejecutar(sc);
 				break;
 			case 4:
-				new EliminarCurso().eliminarcurso(sc);
+				EliminarCurso.ejecutar(sc);
 				break;
 			case 5:
-				new ListarProfesores().listarprofesor();
+				ListarProfesores.ejecutar();
 				break;
 			case 6:
-				new InsertarProfesor().insertarprofesor(sc);
+				InsertarProfesor.ejecutar(sc);
 				break;
 			case 7:
-				new ModificarProfesor().modificarprofesor(sc);
+				ModificarProfesor.ejecutar(sc);
 				break;
 			case 8:
-				new EliminarProfesor().eliminarprofesor(sc);
+				EliminarProfesor.ejecutar(sc);
 				break;
 			case 9:
-				new ListarAlumnos().listaralumno();
+				ListarAlumnos.ejecutar();
 				break;
 			case 10:
-				new InsertarAlumno().insertaralumno(sc);
+				InsertarAlumno.ejecutar(sc);
 				break;
 			case 11:
-				new ModificarAlumno().modificaralumno(sc);
+				ModificarAlumno.ejecutar(sc);
 				break;
 			case 12:
-				new EliminarAlumno().eliminaralumno(sc);
+				EliminarAlumno.ejecutar(sc);
 				break;
 			case 13:
-				new ConsultaCursos().consultacursos();
+				ConsultaCursos.ejecutar();
 				break;
 			case 14:
-				new ConsultaResenias().consultaresenias();
+				ConsultaResenias.ejecutar();
+				break;
+			case 15:
+				System.out.println("En mantenimiento");
 				break;
 
 			default:

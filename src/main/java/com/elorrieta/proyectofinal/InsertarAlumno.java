@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class InsertarAlumno {
 
-	public void insertaralumno(Scanner sc) throws SQLException {
+	public static void ejecutar(Scanner sc) throws SQLException {
 
 		// no hay resulSet porque la consulta no devuelve ningun resultado, no es una
 		// SELECT

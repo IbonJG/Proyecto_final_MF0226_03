@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ModificarAlumno {
 
-	public void modificaralumno(Scanner sc) {
+	public static void ejecutar(Scanner sc) {
 
 		// declaracion de variables
 		int id = 0;

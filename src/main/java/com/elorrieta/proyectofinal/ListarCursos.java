@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class ListarCursos {
 
-	public void listarcurso() {
+	public static void ejecutar() {
 		
 		try {
 			// crear conexion a la bbdd

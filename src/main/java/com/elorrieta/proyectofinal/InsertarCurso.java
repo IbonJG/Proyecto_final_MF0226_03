@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class InsertarCurso {
 
-	public void insertarcurso(Scanner sc) {
+	public static void ejecutar(Scanner sc) {
 
 		// no hay resulSet porque la consulta no devuelve ningun resultado, no es una
 		// SELECT
@@ -16,11 +16,13 @@ public class InsertarCurso {
 		String nombre;
 		float horas;
 		// preparar el scaner para recoger los datos introducidos por teclado
-		//Scanner sc = new Scanner(System.in);
+	
 
 		// establecer conexion con la base de datos y proponer la sentencia sql
-		try (Connection con = Conexion.getConnection();
-				PreparedStatement pst = con.prepareStatement("INSERT INTO curso (nombre, horas) VALUES (?, ?)");) {
+		try (			
+				Connection con = Conexion.getConnection();
+				PreparedStatement pst = con.prepareStatement("INSERT INTO curso (nombre, horas) VALUES (?, ?)");
+			) {
 
 			// nombre vacio
 			boolean nombreVacio = true;

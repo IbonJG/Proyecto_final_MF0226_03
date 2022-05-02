@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class EliminarAlumno {
 
-	public void eliminaralumno(Scanner sc) {
+	public static void ejecutar(Scanner sc) {
 
 		// declaracon variable para recoger la id a eliminar
 		int id = 0;

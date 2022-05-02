@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 
 public class ConsultaResenias {
 
-	public void consultaresenias()  {
+	public static void ejecutar()  {
 		
 		try {
 			// crear conexion a la bbdd
