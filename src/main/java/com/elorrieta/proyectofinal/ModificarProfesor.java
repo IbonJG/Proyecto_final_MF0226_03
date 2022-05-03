@@ -25,14 +25,13 @@ public class ModificarProfesor {
 
 			// gestion de error si mete letras en vez de numeros
 			boolean volverApedir = true;
+			//boolean nombreLargo = true;
 			while (volverApedir) {
 				System.out.println("Introduce la id del profesor que deseas modificar");
 				try {
 					id = Integer.parseInt(sc.nextLine());
 					volverApedir = false;
-				} catch (Exception e) {
-					System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
-				}
+				
 
 				// sentencia para preguntar si la id introducida existe en la bbdd
 				String sql2 = "SELECT id_profesor, nombre, apellidos FROM profesor WHERE id_profesor = ?;";
@@ -42,23 +41,34 @@ public class ModificarProfesor {
 				ResultSet rs2 = pst2.executeQuery();
 
 				if (rs2.next()) {
-					// si la id existe pedimos los datos
+					// si la id existe pedimos los datos y mostramos los datos actuales en sql2
 					String nombreNuevo = "";
 					String nombreViejo = rs2.getString("nombre");
 
 					String apellidoNuevo = "";
 					String apellidoViejo = rs2.getString("apellidos");
 
-					System.out.println(
-							"El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
+					System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
 					System.out.println("Introduce un nuevo nombre");
 					nombreNuevo = sc.nextLine();
 					if ("".equalsIgnoreCase(nombreNuevo)) {
 						nombreNuevo = nombreViejo;
 					}
-
-					System.out.println(
-							"Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
+				
+					/*
+					//nombre mayor que caracteres permitidos
+					while (nombreLargo) {
+						if (nombreNuevo.length() > 45) {
+							System.out.println("El nombre no puede superar 45 caracteres");
+							volverApedir = true;
+						}
+						else {
+							nombreLargo = false;
+						}
+					}
+					*/
+					
+					System.out.println("Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
 					System.out.println("Introduce los apellidos");
 					apellidoNuevo = sc.nextLine();
 					if ("".equalsIgnoreCase(apellidoNuevo)) {
@@ -92,15 +102,21 @@ public class ModificarProfesor {
 					} while (emailRepetido);
 					*/
 				} else {
-					System.out.println("La id introducida no se encuentra en la base de datos, el profesor no existe");
+					System.out.println("La id " + id + " no se encuentra en la base de datos, el profesor no existe");
 					volverApedir = true;
 				}
+				
+			
+			} catch (NumberFormatException e) {
+				System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
+			}
 			}//end while
 
 		} catch (Exception e) {
 			System.out.println("Error Inexperado, por favor contacta con el administrador.");
 			e.printStackTrace();
 		}
+		
 		
 		//sc.close();
 

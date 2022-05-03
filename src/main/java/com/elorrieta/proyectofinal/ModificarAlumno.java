@@ -30,9 +30,7 @@ public class ModificarAlumno {
 				try {
 					id = Integer.parseInt(sc.nextLine());
 					volverApedir = false;
-				} catch (Exception e) {
-					System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
-				}
+				
 
 				// sentencia para preguntar si la id introducida existe en la bbdd
 				String sql2 = "SELECT id_alumno, nombre, apellidos FROM alumno WHERE id_alumno = ?;";
@@ -87,10 +85,14 @@ public class ModificarAlumno {
 					 * } while (emailRepetido);
 					 */
 				} else {
-					System.out.println("La id introducida no se encuentra en la base de datos, el alumno no existe");
+					System.out.println("La id " +id + " no se encuentra en la base de datos, el alumno no existe");
 					volverApedir = true;
 				}
+			} catch (Exception e) {
+				System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
+				
 			}
+			}//while
 
 		} catch (Exception e) {
 			System.out.println("Error Inexperado, por favor contacta con el administrador.");

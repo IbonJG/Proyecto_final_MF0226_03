@@ -28,9 +28,7 @@ public class ModificarCurso {
 				try {
 					id = Integer.parseInt(sc.nextLine());
 					volverApedir = false;
-				} catch (Exception e) {
-					System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
-				}
+				
 
 				//sentencia para preguntar si la id introducida existe en la bbdd
 				String sql2 = "SELECT id_curso, nombre, horas FROM curso WHERE id_curso = ?;";
@@ -76,11 +74,14 @@ public class ModificarCurso {
 		
 				}
 		        else{
-		           System.out.println("La id introducida no se encuentra en la base de datos, el curso no existe");
+		           System.out.println("La id " + id + " no se encuentra en la base de datos, el curso no existe");
 		           volverApedir=true;
 		        }
+				} catch (Exception e) {
+					System.out.println("No has introducido un valor correcto, intentalo de nuevo:");
+				}
 		
-			}
+			}//while
 		
 		} catch (Exception e) {
 			e.printStackTrace();
