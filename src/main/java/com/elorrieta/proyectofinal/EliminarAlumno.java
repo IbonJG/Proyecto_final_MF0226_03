@@ -55,7 +55,7 @@ public class EliminarAlumno {
 				// mostrar datos del profesor que se va a eliminar
 				String nombre = rs2.getString("nombre");
 				String apellidos = rs2.getString("apellidos");
-				System.out.println("Alumno " + nombre + " " + apellidos + " eliminado correctamente\n");
+				System.out.println("Alumno " + nombre.toUpperCase() + " " + apellidos.toUpperCase() + " eliminado correctamente\n");
 				// si no a encontrado ningun dato con esa id
 			} else {
 				System.out.println("No exite ningun alumno registrado con la id " + id + ", volvemos al menu\n");

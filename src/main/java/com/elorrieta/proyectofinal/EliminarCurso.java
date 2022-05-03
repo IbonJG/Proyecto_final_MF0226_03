@@ -55,7 +55,7 @@ public class EliminarCurso {
 				// mostrar datos del curso que se va a eliminar
 				String nombre = rs2.getString("nombre");
 				float horas = rs2.getFloat("horas");
-				System.out.println("Curso " + nombre + " " + "con " + horas + " horas, eliminado correctamente\n");
+				System.out.println("Curso " + nombre.toUpperCase() + " " + "con " + horas + " horas, eliminado correctamente\n");
 				// si no a encontrado ningun dato con esa id
 			} else {
 				System.out.println("No exite ningun curso registrado con la id " + id + ", volvemos al menu\n");

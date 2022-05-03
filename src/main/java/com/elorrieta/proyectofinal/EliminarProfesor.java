@@ -13,7 +13,7 @@ public class EliminarProfesor {
 		int id = 0;
 
 		// abrir el scanner
-		//Scanner sc = new Scanner(System.in);
+		// Scanner sc = new Scanner(System.in);
 
 		// declarar la sentencia que queremos
 		String sql = ("DELETE FROM profesor WHERE id_profesor = ?;");
@@ -31,42 +31,46 @@ public class EliminarProfesor {
 				try {
 					id = Integer.parseInt(sc.nextLine());
 					volverApedir = false;
-				}
 
-				catch (Exception e) {
+					// Buscar id introducida y comprobar que existe ne la bbdd
+					String sql2 = "SELECT id_profesor, nombre, apellidos FROM profesor WHERE id_profesor = ?;";
+					PreparedStatement pst2 = con.prepareStatement(sql2);
+					// asignar valor introducido a interrogante y ejecutar la query
+					pst2.setInt(1, id);
+					ResultSet rs2 = pst2.executeQuery();
+
+					// si ha encontrado datos
+					if (rs2.next()) {
+						// se asigna el valor intrucido a la primera sentencia y se ejecuta
+						pst.setInt(1, id);
+						pst.executeUpdate();
+						// mostrar datos del profesor que se va a eliminar
+						String nombre = rs2.getString("nombre");
+						String apellidos = rs2.getString("apellidos");
+						System.out.println("Profesor " + nombre.toUpperCase() + " " + apellidos.toUpperCase()
+								+ " eliminado correctamente\n");
+						// si no a encontrado ningun dato con esa id
+					} else {
+						System.out.println("No exite ningun profesor registrado con la id " + id /* + "\n"*/);
+						volverApedir = true;
+					}
+
+				} catch (NumberFormatException e) {
 					System.out.println("Debes introducir una id de un profesor existente, intentalo de nuevo");
+					volverApedir = true;
+
+				} catch (Exception e) {
+					System.out.println("error " + e.getMessage());
 					volverApedir = true;
 				}
 
 			} // while
-
-			// Buscar id introducida y comprobar que existe ne la bbdd
-			String sql2 = "SELECT id_profesor, nombre, apellidos FROM profesor WHERE id_profesor = ?;";
-			PreparedStatement pst2 = con.prepareStatement(sql2);
-			// asignar valor introducido a interrogante y ejecutar la query
-			pst2.setInt(1, id);
-			ResultSet rs2 = pst2.executeQuery();
-
-			// si ha encontrado datos
-			if (rs2.next()) {
-				// se asigna el valor intrucido a la primera sentencia y se ejecuta
-				pst.setInt(1, id);
-				pst.executeUpdate();
-				// mostrar datos del profesor que se va a eliminar
-				String nombre = rs2.getString("nombre");
-				String apellidos = rs2.getString("apellidos");
-				System.out.println("Profesor " + nombre + " " + apellidos + " eliminado correctamente\n");
-				// si no a encontrado ningun dato con esa id
-			} else {
-				System.out.println("No exite ningun profesor registrado con la id " + id + ", volvemos al menu\n");
-			}
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		//sc.close();
+		// sc.close();
 
-	}//void
+	}// void
 
-}//class
+}// class

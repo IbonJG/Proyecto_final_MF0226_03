@@ -95,7 +95,7 @@ public class ModificarProfesor {
 					System.out.println("La id introducida no se encuentra en la base de datos, el profesor no existe");
 					volverApedir = true;
 				}
-			}
+			}//end while
 
 		} catch (Exception e) {
 			System.out.println("Error Inexperado, por favor contacta con el administrador.");
