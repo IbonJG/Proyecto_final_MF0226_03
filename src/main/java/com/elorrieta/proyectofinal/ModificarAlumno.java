@@ -47,20 +47,44 @@ public class ModificarAlumno {
 					String apellidoNuevo = "";
 					String apellidoViejo = rs2.getString("apellidos");
 
-					System.out.println(
-							"El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
-					System.out.println("Introduce un nuevo nombre");
-					nombreNuevo = sc.nextLine();
-					if ("".equalsIgnoreCase(nombreNuevo)) {
-						nombreNuevo = nombreViejo;
-					}
-
-					System.out.println("Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
-					System.out.println("Introduce los apellidos");
-					apellidoNuevo = sc.nextLine();
-					if ("".equalsIgnoreCase(apellidoNuevo)) {
-						apellidoNuevo = apellidoViejo;
-					}
+					//pedir nombre
+					boolean repetirNombre = true;
+					do {
+						System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
+						System.out.println("Introduce un nuevo nombre");
+						nombreNuevo = sc.nextLine();
+						
+						if ("".equalsIgnoreCase(nombreNuevo)) {
+							nombreNuevo = nombreViejo;
+						}
+						if( nombreNuevo.length() > 45 ) {
+							System.out.println("*** el nombre no puede exceder de 45 caracteres");
+						}else {
+							repetirNombre = false;
+						}
+						
+					} while (repetirNombre);
+					
+					
+					//pedir apellido
+					boolean repetirApellido = true;
+					do {
+						System.out.println("Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
+						System.out.println("Introduce los apellidos");
+						apellidoNuevo = sc.nextLine();
+						
+						if ("".equalsIgnoreCase(apellidoNuevo)) {
+							apellidoNuevo = apellidoViejo;
+						}
+						if( apellidoNuevo.length() > 45 ) {
+							System.out.println("*** el apellido no puede exceder de 150 caracteres");
+						}else {
+							repetirApellido = false;
+						}
+								
+					} while (repetirApellido);
+					
+					
 
 					// asignar datos introducidos a los interrogantes
 					pst.setString(1, nombreNuevo);

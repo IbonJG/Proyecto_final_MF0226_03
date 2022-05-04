@@ -48,33 +48,45 @@ public class ModificarProfesor {
 					String apellidoNuevo = "";
 					String apellidoViejo = rs2.getString("apellidos");
 
-					System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
-					System.out.println("Introduce un nuevo nombre");
-					nombreNuevo = sc.nextLine();
-					if ("".equalsIgnoreCase(nombreNuevo)) {
-						nombreNuevo = nombreViejo;
-					}
-				
-					/*
-					//nombre mayor que caracteres permitidos
-					while (nombreLargo) {
-						if (nombreNuevo.length() > 45) {
-							System.out.println("El nombre no puede superar 45 caracteres");
-							volverApedir = true;
+					//pedir nombre
+					boolean repetirNombre = true;
+					do {
+						System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
+						System.out.println("Introduce un nuevo nombre");
+						nombreNuevo = sc.nextLine();
+						
+						if ("".equalsIgnoreCase(nombreNuevo)) {
+							nombreNuevo = nombreViejo;
 						}
-						else {
-							nombreLargo = false;
+						
+						if( nombreNuevo.length() > 45 ) {
+							System.out.println("*** el nombre no puede exceder de 45 caracteres");
+						}else {
+							repetirNombre = false;
 						}
-					}
-					*/
-					
-					System.out.println("Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
-					System.out.println("Introduce los apellidos");
-					apellidoNuevo = sc.nextLine();
-					if ("".equalsIgnoreCase(apellidoNuevo)) {
-						apellidoNuevo = apellidoViejo;
-					}
-
+						
+					}while(repetirNombre);	
+						
+					//pedir apellido
+					boolean repetirApellido= true;
+					do {
+						
+						System.out.println("Los apellidos actuales son : " + apellidoViejo.toUpperCase() + " ,pulsa enter para NO cambiarlo");
+						System.out.println("Introduce los apellidos");
+						apellidoNuevo = sc.nextLine();
+						
+						if ("".equalsIgnoreCase(apellidoNuevo)) {
+							apellidoNuevo = apellidoViejo;
+						}
+						if (apellidoNuevo.length() > 150) {
+							System.out.println("El apellido no puede superar los 150 caracteres");
+						} else {
+							repetirApellido= false;
+						}
+						
+						
+					}while (repetirApellido);
+						
 					// asignar datos introducidos a los interrogantes
 					pst.setString(1, nombreNuevo);
 					pst.setString(2, apellidoNuevo);

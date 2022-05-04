@@ -42,27 +42,52 @@ public class ModificarCurso {
 					String nombreNuevo = "";
 					String nombreViejo =  rs2.getString("nombre");
 					
-					float horasNuevo;
-					//float horasViejo =  rs2.getFLoat(horas);
+					float horasNuevo = 0;
+					float horasViejo =  rs2.getFloat("horas");
 				
+					//pedir nombre
+					boolean repetirNombre = true;
+					do {
+						System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
+			            System.out.println("Introduce un nuevo nombre");
+			            nombreNuevo = sc.nextLine();
+			            //si mete enter sin escribir nada recoge el que ya estaba puesto
+			            if ( "".equalsIgnoreCase(nombreNuevo)) {
+			            	nombreNuevo = nombreViejo;
+			            }
+						if (nombreNuevo.length() > 45 ) {
+							System.out.println("El nombre no puede superar los 45 caracteres");
+						}
+						else {
+							repetirNombre = false;
+						}
+						
+					} while (repetirNombre);
 					
-					System.out.println("El nombre actual es : " + nombreViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
-		            System.out.println("Introduce un nuevo nombre");
-		            nombreNuevo = sc.nextLine();
-		            //si mete enter sin escribir nada recoge el que ya estaba puesto
-		            if ( "".equalsIgnoreCase(nombreNuevo)) {
-		            	nombreNuevo = nombreViejo;
-		            }
 		            
-		            System.out.println("Introduce las horas");
-		            horasNuevo = Float.parseFloat(sc.nextLine());
-	
-					//System.out.println("El email actual es : " + horasViejo.toUpperCase() + " ,pulsa enter para no cambiarlo");
-					//System.out.println("Introduce un email");
-					//horasNuevo = Float.parseFloat(sc.nextLine());
-					 //if ( "".equalsIgnoreCase(horasNuevo)) {
-						 //horasNuevo = horasViejo;
-			            //}
+		            
+		            //pedir horas
+		            System.out.println("Las horas actuales son : " + horasViejo + " ,pulsa enter para no cambiarlo");
+		            
+		            boolean repetirHoras = true;
+		            do {
+			            System.out.println("Introduce las horas");
+			            String respuesta = sc.nextLine();
+			            if ( "".equals(respuesta)) {
+			            	horasNuevo = horasViejo;
+			            	repetirHoras = false;
+			            }else {
+			            	
+			            	try {
+				            	horasNuevo = Float.parseFloat(respuesta);
+				            	repetirHoras = false;
+				            	
+			            	}catch (NumberFormatException e) {
+								System.out.println("*** lo siento no es un numero, prueba de nuevo");
+							}	
+			            	
+			            }
+		            }while(repetirHoras); 
 	
 					// asignar datos introducidos a los interrogantes
 					pst.setString(1, nombreNuevo);
