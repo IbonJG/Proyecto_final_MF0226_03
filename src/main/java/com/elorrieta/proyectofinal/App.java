@@ -131,20 +131,12 @@ public class App {
 		}
 		
 		
-	
-		
-		
-		
-		//TODO 
-		// error menu principal elegir opcion letras en vez de numeros
-		//error insertar nuevo curso, horas, meter letras en vez de numeros, vacio
-		//mensajes en modificar mayusculas valor que ya esta en la bbdd 
-		//doble mensaje modificar alumno, meter letras en vez de numero en id
-		//eliminar alumno, vuelve al menu cuando se mete una id que no existe, cuando mete letras bien, espera a que vuelvas a introducir
-		// eliminar alumno doble mensaje letras en vez de numeros
-		//horas curso vieja en modificar (getfloat)
-		//mas consultas??
-		// consultas detalle de un curso: pedir que curso queremos consultar
+		/*
+		 * TODO 
+		 * consultas detalle de un curso: pedir que curso queremos consultar
+		 * errores: introduce id o identificador de curso que no existe
+		 * doble menu: cursos---- crud, profesores----crud, alumnos---crud
+		 */ 
 		
 		}//main
 	}//class
