@@ -55,7 +55,7 @@ public class App {
 				System.out.println("----------------------------------------------------");
 				System.out.println(" 0 - Salir");
 				System.out.println("----------------------------------------------------");
-
+				//System.out.println("---------------Elige una opcion---------------------");
 				
 				// recoger el valor introducido
 					
